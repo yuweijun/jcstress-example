@@ -20,6 +20,7 @@
 .project
 .recommenders
 .settings
+jcstress.*
 RemoteSystemsTempFiles
 WebContent
 bin

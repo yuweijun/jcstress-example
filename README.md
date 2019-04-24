@@ -1,6 +1,4 @@
-## Jcstress
-
-[https://time.geekbang.org/column/article/13484](https://time.geekbang.org/column/article/13484)
+## JCStress
 
 ```bash
 mvn archetype:generate -DinteractiveMode=false -DarchetypeGroupId=org.openjdk.jcstress -DarchetypeArtifactId=jcstress-java-test-archetype -DarchetypeVersion=0.1.1 -DgroupId=org.sample -DartifactId=test -Dversion=1.0
@@ -36,3 +34,9 @@ java -jar target/jcstress.jar
 ## 测试结果目录
 
 可以查看`results`目录，下面会生成 HTML 报告。
+
+## References
+
+1. [jcstress](https://wiki.openjdk.java.net/display/CodeTools/jcstress)
+2. [https://time.geekbang.org/column/article/13484](https://time.geekbang.org/column/article/13484)
+
