@@ -5,10 +5,10 @@ import org.openjdk.jcstress.infra.results.IntResult2;
 
 @JCStressTest
 @Outcome(id = {"0, 2", "1, 0"}, expect = Expect.ACCEPTABLE, desc = "Normal outcome")
-@Outcome(id = {"0, 0"}, expect = Expect.FORBIDDEN, desc = "Abnormal outcome")
-@Outcome(id = {"1, 2"}, expect = Expect.ACCEPTABLE, desc = "Normal outcome")
+@Outcome(id = {"0, 0"}, expect = Expect.ACCEPTABLE_INTERESTING, desc = "Normal outcome")
+@Outcome(id = {"1, 2"}, expect = Expect.ACCEPTABLE_INTERESTING, desc = "Normal outcome")
 @State
-public class JavaConcurentStressExample4 {
+public class JavaConcurrentStressExample4 {
 
     int a = 0;
 
@@ -16,13 +16,13 @@ public class JavaConcurentStressExample4 {
 
     @Actor
     public void method1(IntResult2 r) {
-        b = 1; // 写读
-        r.r2 = a; // volatile 第二写位置禁止重排序
+        b = 1; // 第一个操作是 volatile 写操作，写读仍然会重排序
+        r.r2 = a;
     }
 
     @Actor
     public void method2(IntResult2 r) {
         a = 2; // 写读
-        r.r1 = b;
+        r.r1 = b; // 第二个操作是 volatile 读操作，写读仍然会重排序
     }
 }

@@ -8,7 +8,7 @@ import org.openjdk.jcstress.infra.results.IntResult2;
 @Outcome(id = {"0, 0"}, expect = Expect.ACCEPTABLE_INTERESTING, desc = "Out of order outcome")
 @Outcome(id = {"1, 2"}, expect = Expect.ACCEPTABLE, desc = "Normal outcome")
 @State
-public class JavaConcurentStressExample3 {
+public class JavaConcurrentStressExample3 {
 
     int a = 0;
 

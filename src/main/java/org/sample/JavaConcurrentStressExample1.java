@@ -7,21 +7,21 @@ import org.openjdk.jcstress.infra.results.IntResult2;
 @Outcome(id = {"0, 0", "0, 2", "1, 0"}, expect = Expect.ACCEPTABLE, desc = "Normal outcome")
 @Outcome(id = {"1, 2"}, expect = Expect.ACCEPTABLE_INTERESTING, desc = "Abnormal outcome")
 @State
-public class JavaConcurentStressExample2 {
+public class JavaConcurrentStressExample1 {
 
     int a = 0;
 
-    volatile int b = 0;
+    int b = 0;
 
     @Actor
     public void method1(IntResult2 r) {
-        r.r2 = a;
+        r.r2 = a; // 读写
         b = 1;
     }
 
     @Actor
     public void method2(IntResult2 r) {
-        r.r1 = b;
+        r.r1 = b; // 读写
         a = 2;
     }
 }
